@@ -1,7 +1,7 @@
 (*The syntax of this file should be mostly self explanatory if you understand EBNF 
   and regular expressions, The one unique feature is that a literal or a rule
   can be excluded from the resulting parse tree by surronding it with angle brackets*)
-<S> ::= DeclarationSourceFile
+<DeclarationSourceFile> ::= ws-opt DeclarationElement*
 TypeParameters ::= <'<'> TypeParameter (<','> TypeParameter)* <'>'>
 TypeParameter ::= ws-opt Identifier [ws Constraint] ws-opt
 Identifier ::= #"[$_\p{L}][$_\p{L}\p{N}]*"
@@ -84,12 +84,11 @@ ClassOrInterfaceTypeList ::=
 ClassHeritage ::= [ClassExtendsClause] [ImplementsClause]
 ClassExtendsClause ::= "extends" ws TypeReference
 ImplementsClause ::= "implements" ws ClassOrInterfaceTypeList
-<DeclarationSourceFile> ::= (DeclarationElement*) ws-opt
-DeclarationElement ::= ws-opt ExportAssignment
-                     | ws-opt [<"export"> ws] InterfaceDeclaration
-                     | ws-opt [<"export"> ws] ImportDeclarartion
-                     | ws-opt [<"export"> ws] ExternalImportDeclaration
-                     | ws-opt [<"export"> ws] AmbientDeclaration
+DeclarationElement ::= ExportAssignment ws-opt
+                     | [<"export"> ws] InterfaceDeclaration ws-opt
+                     | [<"export"> ws] ImportDeclarartion ws-opt
+                     | [<"export"> ws] ExternalImportDeclaration ws-opt
+                     | [<"export"> ws] AmbientDeclaration ws-opt
 ImportDeclarartion ::= "import" ws Identifier equals QualifiedIdentifier ';'
 ExternalImportDeclaration ::= 
   "import" ws Identifier equals ExternalModuleReference <';'>

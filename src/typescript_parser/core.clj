@@ -2,7 +2,8 @@
   (:require [instaparse.core :as insta]))
 
 (def grammar1
-  (insta/parser (slurp "typescript.ebnf")))
+  (insta/parser (slurp "typescript.ebnf")
+                :output-format :enlive))
 (grammar1 "/////////////////////////////////////
           ////////////////////////////////////////
           ///////////////////////////////////
@@ -12,7 +13,8 @@
           ///////////////////////////////////
           ///////////////////////////////////
           ///////////////////////////////////
-          ")
+          "
+          :unhide :content)
 (comment
 
 (grammar1 "declare var NaN: number;")

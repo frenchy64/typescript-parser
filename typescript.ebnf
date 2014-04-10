@@ -84,11 +84,11 @@ ClassOrInterfaceTypeList ::=
 ClassHeritage ::= [ClassExtendsClause] [ImplementsClause]
 ClassExtendsClause ::= "extends" ws TypeReference
 ImplementsClause ::= "implements" ws ClassOrInterfaceTypeList
-DeclarationElement ::= ExportAssignment ws-opt
-                     | [<"export"> ws] InterfaceDeclaration ws-opt
-                     | [<"export"> ws] ImportDeclarartion ws-opt
-                     | [<"export"> ws] ExternalImportDeclaration ws-opt
-                     | [<"export"> ws] AmbientDeclaration ws-opt
+<DeclarationElement> ::= ExportAssignment ws-opt
+                       | [<"export"> ws] InterfaceDeclaration ws-opt
+                       | [<"export"> ws] ImportDeclarartion ws-opt
+                       | [<"export"> ws] ExternalImportDeclaration ws-opt
+                       | [<"export"> ws] AmbientDeclaration ws-opt
 ImportDeclarartion ::= "import" ws Identifier equals QualifiedIdentifier ';'
 ExternalImportDeclaration ::= 
   "import" ws Identifier equals ExternalModuleReference <';'>

@@ -47,10 +47,10 @@
        {:op :ambient-fn-declaration
         :id id
         :sig sig})
-     :CallSignature
-     (fn [& args]
-       (merge {:op :call-signature}
-     }
+;     :CallSignature
+;     (fn [& args]
+;       (merge {:op :call-signature}
+}
 
     tree))
 
